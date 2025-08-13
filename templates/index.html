@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title><h2>Trivia Música 2000s</h2></title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    
+    <div id="quiz-container" class="fade-in">
+        <h2>Trivia de Música de los 2000s 🎵</h2>
+        
+        <div id="pregunta" class="pregunta"></div>
+        <div id="contador">Tiempo: 6</div>
+        <div id="opciones"></div>
+        <div id="resultado"></div>
+        
+    </div>
+    
+    <!-- Pantalla final -->
+<div id="pantalla-final" class="pantalla-oculta">
+    <h1 class="game-over">🎮 Game Over 🎮</h1>
+    <p id="puntuacion-final"></p>
+    <img id="gif-gameover" src="" alt="Game Over" style="display:none; max-width: 100%; margin: 20px auto; display: block;" />
+    <br>
+    <button id="btnReiniciar">Volver a jugar</button>
+</div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

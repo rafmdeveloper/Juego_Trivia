@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("../img/fondo_2000.png");
+
+
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#quiz-container {
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px 40px 40px 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    animation: fadeIn 0.6s ease-in-out;
+    position: relative;
+}
+
+/* Contador posicionado arriba a la izquierda dentro del contenedor */
+#contador {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e55039; /* rojo naranja */
+    margin-top: 10px; /* separación debajo pregunta */
+    margin-bottom: 15px; /* separación arriba opciones */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center; /* centrado */
+}
+
+/* Contenedor título con tamaño fijo igual al de preguntas */
+#quiz-container h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #222;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 80px; /* espacio extra para que el contador no se superponga */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 80px; /* altura fija para que coincida con pregunta */
+    line-height: 80px; /* para centrar vertical */
+}
+
+/* Pregunta con color más visible y tamaño grande */
+#pregunta {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0a3d62;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.7);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Opciones en grid */
+#opciones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#opciones button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+    background-color: #6a89cc;
+}
+
+#opciones button:hover:not(.correct):not(.incorrect) {
+    filter: brightness(85%);
+}
+
+/* Respuestas correctas e incorrectas */
+.correct {
+    background-color: #4CAF50 !important;
+    color: white;
+    animation: correctFlash 0.3s;
+}
+
+.incorrect {
+    background-color: #f44336 !important;
+    color: white;
+    animation: incorrectFlash 0.3s;
+}
+
+/* Resultado visible */
+#resultado {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #2d3436;
+    min-height: 40px;
+    text-align: center;
+}
+.pantalla-oculta {
+    display: none;
+}
+
+#pantalla-final {
+    max-width: 600px;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    border-radius: 15px;
+    padding: 30px 40px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#pantalla-final .game-over {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+#gif-gameover {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes correctFlash {
+    0%, 100% { background-color: #4CAF50; }
+    50% { background-color: #81C784; }
+}
+
+@keyframes incorrectFlash {
+    0%, 100% { background-color: #f44336; }
+    50% { background-color: #e57373; }
+}
